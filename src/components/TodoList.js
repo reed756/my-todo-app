@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddTodo from "./AddTodo";
 import DeleteTodo from "./DeleteTodo";
+import EditButton from "./EditButton";
 
 const TodoList = () => {
   const OriginalTodos = [
@@ -17,6 +18,7 @@ const TodoList = () => {
           return (
             <li key={todo.key} id={index}>
               {todo.name}{" "}
+              <EditButton todos={todos} index={index} setTodos={setTodos} />
               <DeleteTodo todos={todos} index={index} setTodos={setTodos} />
             </li>
           );
