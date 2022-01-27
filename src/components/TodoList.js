@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AddTodo from "./AddTodo";
+import DeleteTodo from "./DeleteTodo";
 
 const TodoList = () => {
   const OriginalTodos = [
@@ -12,8 +13,13 @@ const TodoList = () => {
     <div>
       <AddTodo todos={todos} setTodos={setTodos} />
       <ol>
-        {todos.map((todo) => {
-          return <li key={todo.key}>{todo.name}</li>;
+        {todos.map((todo, index) => {
+          return (
+            <li key={todo.key} id={index}>
+              {todo.name}{" "}
+              <DeleteTodo todos={todos} index={index} setTodos={setTodos} />
+            </li>
+          );
         })}
       </ol>
     </div>
