@@ -24,6 +24,7 @@ const EditButton = (props) => {
           setEditedTodo("");
         }
       }}
+      className="edit-button"
     >
       EDIT
     </button>

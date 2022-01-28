@@ -11,15 +11,17 @@ const TodoList = () => {
   ];
   const [todos, setTodos] = useState(OriginalTodos);
   return (
-    <div>
+    <div className="list">
       <AddTodo todos={todos} setTodos={setTodos} />
       <ol>
         {todos.map((todo, index) => {
           return (
             <li key={todo.key} id={index}>
-              {todo.name}{" "}
-              <EditButton todos={todos} index={index} setTodos={setTodos} />
-              <DeleteTodo todos={todos} index={index} setTodos={setTodos} />
+              <p>{todo.name}</p>
+              <div className="todo-buttons">
+                <EditButton todos={todos} index={index} setTodos={setTodos} />
+                <DeleteTodo todos={todos} index={index} setTodos={setTodos} />
+              </div>
             </li>
           );
         })}

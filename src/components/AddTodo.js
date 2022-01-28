@@ -4,16 +4,22 @@ const AddTodo = (props) => {
   const [newTodo, setNewTodo] = useState({ key: "", name: "" });
 
   return (
-    <div>
-      <input
-        onChange={(event) => {
-          const newObj = { key: props.todos.length, name: event.target.value };
-          setNewTodo(newObj);
-        }}
-        value={newTodo.name}
-      ></input>
+    <form className="form">
+      <label>
+        <input
+          onChange={(event) => {
+            const newObj = {
+              key: props.todos.length,
+              name: event.target.value,
+            };
+            setNewTodo(newObj);
+          }}
+          value={newTodo.name}
+        ></input>
+      </label>
       <button
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           const newTodos = [...props.todos, newTodo];
           props.setTodos(newTodos);
           setNewTodo({ key: "", name: "" });
@@ -21,7 +27,7 @@ const AddTodo = (props) => {
       >
         ADD TODO
       </button>
-    </div>
+    </form>
   );
 };
 

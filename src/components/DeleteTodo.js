@@ -6,6 +6,7 @@ const DeleteTodo = (props) => {
         newTodos.splice(props.index, 1);
         props.setTodos(newTodos);
       }}
+      className="delete-button"
     >
       DELETE
     </button>
